@@ -21,4 +21,6 @@ fi
 echo "Docker-compose installed"
 
 cd /vagrant
-sudo docker-compose up -d
+sudo docker build -t nginx .
+sudo docker run -d -p 80:80 --volume=/vagrant/website:/usr/share/nginx/html nginx
+
